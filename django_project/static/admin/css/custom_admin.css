@@ -1,0 +1,43 @@
+
+/* Custom Admin Styles */
+#header {
+  background: #1a5276;
+  color: #fff;
+}
+
+.module h2, .module caption, .inline-group h2 {
+  background: #2980b9;
+}
+
+a:link, a:visited {
+  color: #2980b9;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background: #2980b9;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover {
+  background: #3498db;
+}
+
+div.breadcrumbs {
+  background: #3498db;
+}
+
+/* Adjust table styling */
+.results {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Form styling */
+.form-row {
+  padding: 12px 10px;
+}
+
+/* Custom fieldset styling */
+fieldset.collapsed h2 {
+  background: #f8f9fa;
+  color: #2980b9;
+}
