@@ -2,7 +2,6 @@
 {% extends '../hotstuff.html' %}
 {% block content %}
 <h1>Daily Specials</h1>
-  
 
     <div class="special-date">
       {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
@@ -63,7 +62,7 @@
           {% if latest_special.f_special_w_side %}
             with {{ latest_special.f_special_w_side }} and
           {% endif %}
-          {{ latest_special.f_special.number_of_sides }}
+          plus {{ latest_special.f_special.number_of_sides }} sides
         </div>
       {% endif %}
     </div>
