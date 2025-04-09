@@ -77,6 +77,6 @@ class DailySpecialAdmin(admin.ModelAdmin):
         }),
         ('Desserts', {
             'fields': ['dessert_1', 'dessert_2', 'dessert_3', 'dessert_4'],
-            'classes': ('collapse',),
+            'classes': ('',),
         }),
     )
