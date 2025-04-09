@@ -53,10 +53,11 @@ class DailySpecialAdmin(admin.ModelAdmin):
         }),
         ('Veggies', {
             'fields': [
-                ('veggie_1', 'veggie_2'),
-                ('veggie_3', 'veggie_4'), 
-                ('veggie_5', 'veggie_6'),
-                ('veggie_7', 'veggie_8')
+                ('veggie_1', 'veggie_6'),
+                ('veggie_2', 'veggie_7'), 
+                ('veggie_3', 'veggie_8'),
+                ('veggie_4', 'veggie_9'),
+                ('veggie_5', 'veggie_10')
             ],
             'classes': ('collapse',),
         }),

@@ -29,7 +29,7 @@ class Special(models.Model):
   daily_special_id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=255, verbose_name="Special Name")
   number_of_sides = models.IntegerField(verbose_name="Number of Sides")
-  price = models.ForeignKey(SpecialPrice, verbose_name="Price", null=True, on_delete=models.SET_NULL)
+  price = models.DecimalField(max_digits=5, decimal_places=2, default='0.00')
 
   class Meta:
     verbose_name = "Special"
@@ -58,32 +58,43 @@ class DailySpecial(models.Model):
                                 default="",
                                 related_name='daily_special_a',
                                 on_delete=models.SET_NULL)
+  a_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   b_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_b',
                                 on_delete=models.SET_NULL)
+  b_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   c_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_c',
                                 on_delete=models.SET_NULL)
+  c_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   d_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_d',
                                 on_delete=models.SET_NULL)
+  a_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   e_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_e',
                                 on_delete=models.SET_NULL)
+  e_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   f_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_f',
                                 on_delete=models.SET_NULL)
-
+  f_special_w_side = models.CharField(max_length=100, default="", blank=True)
+  
   veggie_1 = models.ForeignKey(Veggie, 
                                null=True,
                                default="",
@@ -123,6 +134,26 @@ class DailySpecial(models.Model):
                                null=True,
                                default="",
                                related_name='daily_special_veggie_8',
+                               on_delete=models.SET_NULL)
+  veggie_9 = models.ForeignKey(Veggie, 
+                               null=True,
+                               default="",
+                               related_name='daily_special_veggie_9',
+                               on_delete=models.SET_NULL)
+  veggie_10 = models.ForeignKey(Veggie, 
+                               null=True,
+                               default="",
+                               related_name='daily_special_veggie_10',
+                               on_delete=models.SET_NULL)
+  veggie_11 = models.ForeignKey(Veggie, 
+                               null=True,
+                               default="",
+                               related_name='daily_special_veggie_11',
+                               on_delete=models.SET_NULL)
+  veggie_12 = models.ForeignKey(Veggie, 
+                               null=True,
+                               default="",
+                               related_name='daily_special_veggie_12',
                                on_delete=models.SET_NULL)
 
   dessert_1 = models.ForeignKey(Dessert, 
