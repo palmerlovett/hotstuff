@@ -49,7 +49,14 @@ class DailySpecialAdmin(admin.ModelAdmin):
             'fields': ('date',)
         }),
         ('Specials', {
-            'fields': ['a_special', 'b_special', 'c_special', 'd_special', 'e_special', 'f_special']
+            'fields': [
+                ('a_special', 'a_special_w_side'),
+                ('b_special', 'b_special_w_side'),
+                ('c_special', 'c_special_w_side'),
+                ('d_special', 'd_special_w_side'),
+                ('e_special', 'e_special_w_side'),
+                ('f_special', 'f_special_w_side')
+            ]
         }),
         ('Veggies', {
             'fields': [
