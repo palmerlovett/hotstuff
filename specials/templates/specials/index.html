@@ -1,3 +1,4 @@
+
 {% extends '../hotstuff.html' %}
 {% block content %}
 <h1>Daily Specials</h1>
@@ -82,7 +83,7 @@
         {% if latest_special.veggie_10 %}<li>{{ latest_special.veggie_10.name }}</li>{% endif %}
         {% if latest_special.veggie_11 %}<li>{{ latest_special.veggie_11.name }}</li>{% endif %}
         {% if latest_special.veggie_12 %}<li>{{ latest_special.veggie_12.name }}</li>{% endif %}
-      </div>
+      </ul>
     </div>
     
     <div class="special-section">
@@ -94,6 +95,4 @@
         {% if latest_special.dessert_4 %}<li>{{ latest_special.dessert_4.name }} - ${{ latest_special.dessert_4.price }}</li>{% endif %}
       </ul>
     </div>
-{% endif %}
-  
 {% endblock %}
