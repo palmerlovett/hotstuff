@@ -9,22 +9,22 @@
     
     <div class="special-section">
       <h2>Today's Specials</h2>
+    <ul class="specials">
       {% for special in specials_list %}
-        <div class="special-item">
-          <strong>Special {{ special.letter }}:</strong> {{ special.special.name }}
-          {% if special.side %}
+        <li class="special-item">
+          {{ special.special.name }}
+          
+        ({% if special.side %}
             with {{ special.side }}
-            {% if special.letter in 'DEF' %} and{% endif %}
+            plus
           {% endif %}
-          {% if special.letter in 'DEF' %}
-            {% if special.letter == 'F' %}plus {% endif %}
-            {{ special.special.number_of_sides }} 
+          {{ special.special.number_of_sides }} 
             {% if special.letter == 'F' %}sides{% endif %}
-          {% endif %}
-        </div>
+        </li>
       {% empty %}
         <p>No specials available today.</p>
       {% endfor %}
+    </ul>
     </div>
     
     <div class="special-section">
