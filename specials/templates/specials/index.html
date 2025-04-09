@@ -3,10 +3,10 @@
 {% block content %}
 <h1>Daily Specials</h1>
 
-<div class="special-date">
+  <div class="special-date">
     {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
   </div>
-
+  
   <div class="special-section">
     <h2>Today's Specials</h2>
     <ul class="specials">
@@ -19,10 +19,10 @@
             plus
           {% endif %}
           {{ special.special.number_of_sides }} 
-          {% if special.letter == 'F' %}sides{% endif %}
+          {% if special.letter == 'F' %}sides{% endif %})
         </li>
       {% empty %}
-        <p>No specials available today.</p>
+        <li>No specials available today.</li>
       {% endfor %}
     </ul>
   </div>
