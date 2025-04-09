@@ -26,5 +26,5 @@ admin.site.index_title = "Welcome to Daily Specials Admin Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('specials.urls')),
+    path('specials/', include('specials.urls')),
 ]

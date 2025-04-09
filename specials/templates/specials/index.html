@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Daily Specials</h1>
   
-  {% if latest_special %}
+
     <div class="special-date">
       {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
     </div>
@@ -40,8 +40,9 @@
         <div class="special-item">
           <strong>Special D:</strong> {{ latest_special.d_special.name }}
           {% if latest_special.d_special_w_side %}
-            with {{ latest_special.d_special_w_side }}
+            with {{ latest_special.d_special_w_side }} and
           {% endif %}
+          {{ latest_special.d_special.number_of_sides }}
         </div>
       {% endif %}
       
@@ -49,8 +50,9 @@
         <div class="special-item">
           <strong>Special E:</strong> {{ latest_special.e_special.name }}
           {% if latest_special.e_special_w_side %}
-            with {{ latest_special.e_special_w_side }}
+            with {{ latest_special.e_special_w_side }} and
           {% endif %}
+          {{ latest_special.e_special.number_of_sides }}
         </div>
       {% endif %}
       
@@ -58,41 +60,40 @@
         <div class="special-item">
           <strong>Special F:</strong> {{ latest_special.f_special.name }}
           {% if latest_special.f_special_w_side %}
-            with {{ latest_special.f_special_w_side }}
+            with {{ latest_special.f_special_w_side }} and
           {% endif %}
+          {{ latest_special.f_special.number_of_sides }}
         </div>
       {% endif %}
     </div>
     
     <div class="special-section">
       <h2>Today's Veggies</h2>
-      <div class="special-item">
-        {% if latest_special.veggie_1 %}<div>{{ latest_special.veggie_1.name }}</div>{% endif %}
-        {% if latest_special.veggie_2 %}<div>{{ latest_special.veggie_2.name }}</div>{% endif %}
-        {% if latest_special.veggie_3 %}<div>{{ latest_special.veggie_3.name }}</div>{% endif %}
-        {% if latest_special.veggie_4 %}<div>{{ latest_special.veggie_4.name }}</div>{% endif %}
-        {% if latest_special.veggie_5 %}<div>{{ latest_special.veggie_5.name }}</div>{% endif %}
-        {% if latest_special.veggie_6 %}<div>{{ latest_special.veggie_6.name }}</div>{% endif %}
-        {% if latest_special.veggie_7 %}<div>{{ latest_special.veggie_7.name }}</div>{% endif %}
-        {% if latest_special.veggie_8 %}<div>{{ latest_special.veggie_8.name }}</div>{% endif %}
-        {% if latest_special.veggie_9 %}<div>{{ latest_special.veggie_9.name }}</div>{% endif %}
-        {% if latest_special.veggie_10 %}<div>{{ latest_special.veggie_10.name }}</div>{% endif %}
-        {% if latest_special.veggie_11 %}<div>{{ latest_special.veggie_11.name }}</div>{% endif %}
-        {% if latest_special.veggie_12 %}<div>{{ latest_special.veggie_12.name }}</div>{% endif %}
+      <ul class="sides">
+        {% if latest_special.veggie_1 %}<li>{{ latest_special.veggie_1.name }}</li>{% endif %}
+        {% if latest_special.veggie_2 %}<li>{{ latest_special.veggie_2.name }}</li>{% endif %}
+        {% if latest_special.veggie_3 %}<li>{{ latest_special.veggie_3.name }}</li>{% endif %}
+        {% if latest_special.veggie_4 %}<li>{{ latest_special.veggie_4.name }}</li>{% endif %}
+        {% if latest_special.veggie_5 %}<li>{{ latest_special.veggie_5.name }}</li>{% endif %}
+        {% if latest_special.veggie_6 %}<li>{{ latest_special.veggie_6.name }}</li>{% endif %}
+        {% if latest_special.veggie_7 %}<li>{{ latest_special.veggie_7.name }}</li>{% endif %}
+        {% if latest_special.veggie_8 %}<li>{{ latest_special.veggie_8.name }}</li>{% endif %}
+        {% if latest_special.veggie_9 %}<li>{{ latest_special.veggie_9.name }}</li>{% endif %}
+        {% if latest_special.veggie_10 %}<li>{{ latest_special.veggie_10.name }}</li>{% endif %}
+        {% if latest_special.veggie_11 %}<li>{{ latest_special.veggie_11.name }}</li>{% endif %}
+        {% if latest_special.veggie_12 %}<li>{{ latest_special.veggie_12.name }}</li>{% endif %}
       </div>
     </div>
     
     <div class="special-section">
       <h2>Today's Desserts</h2>
-      <div class="special-item">
-        {% if latest_special.dessert_1 %}<div>{{ latest_special.dessert_1.name }} - ${{ latest_special.dessert_1.price }}</div>{% endif %}
-        {% if latest_special.dessert_2 %}<div>{{ latest_special.dessert_2.name }} - ${{ latest_special.dessert_2.price }}</div>{% endif %}
-        {% if latest_special.dessert_3 %}<div>{{ latest_special.dessert_3.name }} - ${{ latest_special.dessert_3.price }}</div>{% endif %}
-        {% if latest_special.dessert_4 %}<div>{{ latest_special.dessert_4.name }} - ${{ latest_special.dessert_4.price }}</div>{% endif %}
-      </div>
+      <ul class="desserts">
+        {% if latest_special.dessert_1 %}<li>{{ latest_special.dessert_1.name }} - ${{ latest_special.dessert_1.price }}</li>{% endif %}
+        {% if latest_special.dessert_2 %}<li>{{ latest_special.dessert_2.name }} - ${{ latest_special.dessert_2.price }}</li>{% endif %}
+        {% if latest_special.dessert_3 %}<li>{{ latest_special.dessert_3.name }} - ${{ latest_special.dessert_3.price }}</li>{% endif %}
+        {% if latest_special.dessert_4 %}<li>{{ latest_special.dessert_4.name }} - ${{ latest_special.dessert_4.price }}</li>{% endif %}
+      </ul>
     </div>
-  {% else %}
-    <p>No daily specials are available.</p>
-  {% endif %}
+{% endif %}
   
 {% endblock %}
