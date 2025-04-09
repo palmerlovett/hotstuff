@@ -80,3 +80,11 @@ class DailySpecialAdmin(admin.ModelAdmin):
             'classes': ('',),
         }),
     )
+    
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if obj is None:  # Only set defaults for new objects
+            # Set default date to today
+            from datetime import date
+            form.base_fields['date'].initial = date.today()
+        return form
