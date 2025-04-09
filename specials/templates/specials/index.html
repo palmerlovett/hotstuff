@@ -9,62 +9,22 @@
     
     <div class="special-section">
       <h2>Today's Specials</h2>
-      {% if latest_special.a_special %}
+      {% for special in specials_list %}
         <div class="special-item">
-          <strong>Special A:</strong> {{ latest_special.a_special.name }} 
-          {% if latest_special.a_special_w_side %}
-            with {{ latest_special.a_special_w_side }}
+          <strong>Special {{ special.letter }}:</strong> {{ special.special.name }}
+          {% if special.side %}
+            with {{ special.side }}
+            {% if special.letter in 'DEF' %} and{% endif %}
+          {% endif %}
+          {% if special.letter in 'DEF' %}
+            {% if special.letter == 'F' %}plus {% endif %}
+            {{ special.special.number_of_sides }} 
+            {% if special.letter == 'F' %}sides{% endif %}
           {% endif %}
         </div>
-      {% endif %}
-      
-      {% if latest_special.b_special %}
-        <div class="special-item">
-          <strong>Special B:</strong> {{ latest_special.b_special.name }}
-          {% if latest_special.b_special_w_side %}
-            with {{ latest_special.b_special_w_side }}
-          {% endif %}
-        </div>
-      {% endif %}
-      
-      {% if latest_special.c_special %}
-        <div class="special-item">
-          <strong>Special C:</strong> {{ latest_special.c_special.name }}
-          {% if latest_special.c_special_w_side %}
-            with {{ latest_special.c_special_w_side }}
-          {% endif %}
-        </div>
-      {% endif %}
-      
-      {% if latest_special.d_special %}
-        <div class="special-item">
-          <strong>Special D:</strong> {{ latest_special.d_special.name }}
-          {% if latest_special.d_special_w_side %}
-            with {{ latest_special.d_special_w_side }} and
-          {% endif %}
-          {{ latest_special.d_special.number_of_sides }}
-        </div>
-      {% endif %}
-      
-      {% if latest_special.e_special %}
-        <div class="special-item">
-          <strong>Special E:</strong> {{ latest_special.e_special.name }}
-          {% if latest_special.e_special_w_side %}
-            with {{ latest_special.e_special_w_side }} and
-          {% endif %}
-          {{ latest_special.e_special.number_of_sides }}
-        </div>
-      {% endif %}
-      
-      {% if latest_special.f_special %}
-        <div class="special-item">
-          <strong>Special F:</strong> {{ latest_special.f_special.name }}
-          {% if latest_special.f_special_w_side %}
-            with {{ latest_special.f_special_w_side }} and
-          {% endif %}
-          plus {{ latest_special.f_special.number_of_sides }} sides
-        </div>
-      {% endif %}
+      {% empty %}
+        <p>No specials available today.</p>
+      {% endfor %}
     </div>
     
     <div class="special-section">
