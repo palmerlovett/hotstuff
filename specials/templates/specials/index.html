@@ -1,4 +1,3 @@
-
 {% extends '../hotstuff.html' %}
 {% block content %}
 <h1>Daily Specials</h1>
@@ -13,13 +12,8 @@
       {% for special in specials_list %}
         <li class="special-item">
           {{ special.special.name }}
-          
-          ({% if special.side %}
-            with {{ special.side }}
-            plus
-          {% endif %}
-          {{ special.special.number_of_sides }} 
-          {% if special.letter == 'F' %}sides{% endif %})
+          (w/{% if special.side %}{{ special.side }} plus {% endif %}
+          {{ special.special.number_of_sides }} sides)
         </li>
       {% empty %}
         <li>No specials available today.</li>
