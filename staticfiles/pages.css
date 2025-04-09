@@ -1,0 +1,54 @@
+
+/* Pages CSS */
+/* For page-specific styles */
+
+/* Home Page */
+.home-page .hero {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  background-color: var(--light-bg);
+}
+
+.home-page .hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Special Detail Page */
+.special-detail {
+  padding: var(--spacing-lg) 0;
+}
+
+.special-detail .special-date {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+/* Admin Dashboard Page */
+.admin-dashboard .stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.admin-dashboard .stats-card {
+  background-color: white;
+  border-radius: 4px;
+  padding: var(--spacing-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.admin-dashboard .stats-card h3 {
+  margin-top: 0;
+}
+
+/* Login Page */
+.login-page {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}

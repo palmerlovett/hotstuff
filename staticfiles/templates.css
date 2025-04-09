@@ -1,0 +1,48 @@
+
+/* Templates CSS */
+/* For page templates and layouts */
+
+/* Basic Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Two Column Layout */
+.two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.two-column .main-content {
+  flex: 2;
+}
+
+.two-column .sidebar {
+  flex: 1;
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+}
+
+/* Content Area */
+.content-area {
+  padding: var(--spacing-lg) 0;
+}
+
+/* For responsive layouts */
+@media (max-width: 768px) {
+  .two-column {
+    flex-direction: column;
+  }
+  
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
