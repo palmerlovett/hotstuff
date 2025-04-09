@@ -5,5 +5,15 @@
   .columns-2 {
     columns: 2
   }
-  .columns-2 > h2 { column-span: 2 }
+  .columns-2 > h2 { column-span: all }
+}
+
+.even-selects select {
+  width: 125px; 
+}
+
+
+.aligned label {
+  min-width: 100px;
+  width: 100px;
 }

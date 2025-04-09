@@ -1,24 +1,8 @@
 
 from django.contrib import admin
-from .models import SpecialPrice, Veggie, Special, Dessert, DailySpecial
+from .models import Veggie, Special, Dessert, DailySpecial
 
 from django import forms
-
-class SpecialPriceForm(forms.ModelForm):
-    class Meta:
-        model = SpecialPrice
-        fields = '__all__'
-        labels = {
-            'name': 'Price Description',
-            'total': 'Price Amount',
-        }
-
-@admin.register(SpecialPrice)
-class SpecialPriceAdmin(admin.ModelAdmin):
-    form = SpecialPriceForm
-    list_display = ('name', 'total')
-    search_fields = ('name',)
-    list_filter = ('total',)
 
 @admin.register(Veggie)
 class VeggieAdmin(admin.ModelAdmin):
@@ -56,7 +40,8 @@ class DailySpecialAdmin(admin.ModelAdmin):
                 ('d_special', 'd_special_w_side'),
                 ('e_special', 'e_special_w_side'),
                 ('f_special', 'f_special_w_side')
-            ]
+            ],
+            'classes': ('even-selects',)
         }),
         ('Veggies', {
             'fields': [
@@ -73,11 +58,11 @@ class DailySpecialAdmin(admin.ModelAdmin):
                 'veggie_11',
                 'veggie_12',
             ],
-            'classes': ('columns-2',),
+            'classes': ('columns-2', 'even-selects'),
         }),
         ('Desserts', {
             'fields': ['dessert_1', 'dessert_2', 'dessert_3', 'dessert_4'],
-            'classes': ('',),
+            'classes': ('columns-2', 'even-selects',),
         }),
     )
     

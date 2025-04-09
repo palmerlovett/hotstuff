@@ -2,18 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-class SpecialPrice(models.Model):
-  special_price_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=100, verbose_name="Price Description")
-  total = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Price Amount")
-
-  class Meta:
-    verbose_name = "Special Price"
-    verbose_name_plural = "Special Prices"
-
-  def __str__(self):
-    return f'${self.total}'
-
 class Veggie(models.Model):
   veggie_id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=100, verbose_name="Veggie Name")
