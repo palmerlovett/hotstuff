@@ -4,32 +4,48 @@ from django.db import models
 
 class SpecialPrice(models.Model):
   special_price_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=100)
-  total = models.DecimalField(max_digits=4, decimal_places=2)
+  name = models.CharField(max_length=100, verbose_name="Price Description")
+  total = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Price Amount")
+
+  class Meta:
+    verbose_name = "Special Price"
+    verbose_name_plural = "Special Prices"
 
   def __str__(self):
     return f'${self.total}'
 
 class Veggie(models.Model):
   veggie_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=100)
+  name = models.CharField(max_length=100, verbose_name="Veggie Name")
+  
+  class Meta:
+    verbose_name = "Vegetable"
+    verbose_name_plural = "Vegetables"
   
   def __str__(self):
     return self.name
 
 class Special(models.Model):
   daily_special_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=255)
-  number_of_sides = models.IntegerField()
-  price = models.ForeignKey(SpecialPrice, null=True, on_delete=models.SET_NULL)
+  name = models.CharField(max_length=255, verbose_name="Special Name")
+  number_of_sides = models.IntegerField(verbose_name="Number of Sides")
+  price = models.ForeignKey(SpecialPrice, verbose_name="Price", null=True, on_delete=models.SET_NULL)
+
+  class Meta:
+    verbose_name = "Special"
+    verbose_name_plural = "Specials"
 
   def __str__(self):
      return f'{self.name}'
 
 class Dessert(models.Model):
   dessert_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=100)
-  price = models.DecimalField(max_digits=5, decimal_places=2)
+  name = models.CharField(max_length=100, verbose_name="Dessert Name")
+  price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Price")
+  
+  class Meta:
+    verbose_name = "Dessert"
+    verbose_name_plural = "Desserts"
   
   def __str__(self):
     return self.name
@@ -139,3 +155,8 @@ class DailySpecial(models.Model):
   
   def __str__(self):
     return f"{self.date_day}'s Specials, {self.date_formatted}"
+    
+  class Meta:
+    verbose_name = "Daily Special"
+    verbose_name_plural = "Daily Specials"
+    ordering = ['-date']
