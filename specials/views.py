@@ -33,11 +33,22 @@ def index(request):
                 veggies_list.append(veggie_obj)
         
         # Process desserts
+        temp_desserts = []
         for num in range(1, 5):  # desserts 1-4
             dessert_field = f"dessert_{num}"
             dessert_obj = getattr(latest_special, dessert_field)
             if dessert_obj:
-                desserts_list.append(dessert_obj)
+                temp_desserts.append(dessert_obj)
+        
+        # Assign letters from end of alphabet
+        if temp_desserts:
+            letters = list('zyxwvuts')[:len(temp_desserts)]
+            for i, dessert in enumerate(temp_desserts):
+                desserts_list.append({
+                    'letter': letters[i],
+                    'name': dessert.name,
+                    'price': dessert.price
+                })
     
     context = {
         'latest_special': latest_special,

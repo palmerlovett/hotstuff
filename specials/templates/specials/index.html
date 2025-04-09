@@ -36,7 +36,7 @@
     <h2>Today's Desserts</h2>
     <ul class="desserts">
       {% for dessert in desserts_list %}
-        <li>{{ dessert.name }} - ${{ dessert.price }}</li>
+        <li><strong>{{ dessert.letter }}.</strong> {{ dessert.name }} - ${{ dessert.price }}</li>
       {% empty %}
         <li>No desserts available today.</li>
       {% endfor %}
