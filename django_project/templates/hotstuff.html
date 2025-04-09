@@ -3,11 +3,7 @@
   <head>
     <title>Daily Specials</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'atoms.css' %}">
-    <link rel="stylesheet" href="{% static 'molecules.css' %}">
-    <link rel="stylesheet" href="{% static 'organisms.css' %}">
-    <link rel="stylesheet" href="{% static 'templates.css' %}">
-    <link rel="stylesheet" href="{% static 'pages.css' %}">
+    {% include "parts/styles.html" %}
   </head>
   <body>
     <div class="container">
