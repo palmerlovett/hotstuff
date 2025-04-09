@@ -58,42 +58,42 @@ class DailySpecial(models.Model):
                                 default="",
                                 related_name='daily_special_a',
                                 on_delete=models.SET_NULL)
-  a_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special A with side")
+  a_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   b_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_b',
                                 on_delete=models.SET_NULL)
-  b_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special B with side")
+  b_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   c_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_c',
                                 on_delete=models.SET_NULL)
-  c_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special C with side")
+  c_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   d_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_d',
                                 on_delete=models.SET_NULL)
-  d_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special D with side")
+  d_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   e_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_e',
                                 on_delete=models.SET_NULL)
-  e_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special E with side")
+  e_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   f_special = models.ForeignKey(Special, 
                                 null=True,
                                 default="",
                                 related_name='daily_special_f',
                                 on_delete=models.SET_NULL)
-  f_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="Special F with side")
+  f_special_w_side = models.CharField(max_length=100, default="", blank=True, verbose_name="w/side")
   
   veggie_1 = models.ForeignKey(Veggie, 
                                null=True,
