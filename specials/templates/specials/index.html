@@ -1,38 +1,4 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Daily Specials</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            color: #1a5276;
-        }
-        .special-date {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .special-item {
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-        .special-section {
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #2980b9;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
     <h1>Daily Specials</h1>
     
     {% if latest_special %}
@@ -128,6 +94,3 @@
         <p>No daily specials are available.</p>
     {% endif %}
     
-    <p><a href="/admin/specials/dailyspecial/">Manage Daily Specials</a></p>
-</body>
-</html>
