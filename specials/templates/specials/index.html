@@ -3,49 +3,49 @@
 {% block content %}
 <h1>Daily Specials</h1>
 
-    <div class="special-date">
-      {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
-    </div>
-    
-    <div class="special-section">
-      <h2>Today's Specials</h2>
+  <div class="special-date">
+    {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
+  </div>
+  
+  <div class="special-section">
+    <h2>Today's Specials</h2>
     <ul class="specials">
       {% for special in specials_list %}
         <li class="special-item">
           {{ special.special.name }}
           
-        ({% if special.side %}
+          ({% if special.side %}
             with {{ special.side }}
             plus
           {% endif %}
           {{ special.special.number_of_sides }} 
-            {% if special.letter == 'F' %}sides{% endif %}
+          {% if special.letter == 'F' %}sides{% endif %}
         </li>
       {% empty %}
         <p>No specials available today.</p>
       {% endfor %}
     </ul>
-    </div>
-    
-    <div class="special-section">
-      <h2>Today's Veggies</h2>
-      <ul class="sides">
-        {% for veggie in veggies_list %}
-          <li>{{ veggie.name }}</li>
-        {% empty %}
-          <li>No veggies available today.</li>
-        {% endfor %}
-      </ul>
-    </div>
-    
-    <div class="special-section">
-      <h2>Today's Desserts</h2>
-      <ul class="desserts">
-        {% for dessert in desserts_list %}
-          <li>{{ dessert.name }} - ${{ dessert.price }}</li>
-        {% empty %}
-          <li>No desserts available today.</li>
-        {% endfor %}
-      </ul>
-    </div>
+  </div>
+  
+  <div class="special-section">
+    <h2>Today's Veggies</h2>
+    <ul class="sides">
+      {% for veggie in veggies_list %}
+        <li>{{ veggie.name }}</li>
+      {% empty %}
+        <li>No veggies available today.</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="special-section">
+    <h2>Today's Desserts</h2>
+    <ul class="desserts">
+      {% for dessert in desserts_list %}
+        <li>{{ dessert.name }} - ${{ dessert.price }}</li>
+      {% empty %}
+        <li>No desserts available today.</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
