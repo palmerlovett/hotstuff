@@ -7,6 +7,8 @@ version = "0.1.0"
 Django = "^5.0"
 python = "^3.10"
 playwright = "1.49.0"
+pillow = "^11.1.0"
+html2image = "^2.0.5"
 [tool.poetry.dev-dependencies]
 
 [tool.pyright]
