@@ -140,4 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Base URL for generating URLs for screenshots
 # This should be set to your actual deployment URL in production
-BASE_URL = 'http://localhost:3000'
+BASE_URL = 'https://b1ee19db-796d-4c17-8e8e-e3c333780335-00-1cykz74tolqv6.worf.replit.dev'
