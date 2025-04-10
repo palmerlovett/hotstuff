@@ -227,6 +227,7 @@ class DailySpecial(models.Model):
       
       # Capture the screenshot
       print(f"Taking screenshot of {base_url}/specials/print/")
+      # Allow a bit more time for fonts and CSS to load
       success = take_screenshot(f"{base_url}/specials/print/", filepath)
       
       if success:

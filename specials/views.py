@@ -61,7 +61,8 @@ def index(request):
 
 def print(request):
   context = create_specials_objects()
-  # Render the template, but also generate an image for printing if needed
+  
+  # Check if we need to generate an image
   if request.GET.get('image', False):
     from django.conf import settings
     import os
@@ -72,11 +73,23 @@ def print(request):
     filename = f"daily_special_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
     output_path = os.path.join(settings.MEDIA_ROOT, 'screenshots', filename)
     
-    # Generate the image (not an actual screenshot anymore)
-    take_screenshot('specials/print/', output_path)
+    # Generate a full URL to the print page
+    # This ensures CSS and fonts are properly loaded
+    host = request.get_host()
+    protocol = 'https' if request.is_secure() else 'http'
+    full_url = f"{protocol}://{host}/specials/print/"
     
-    # Redirect to the image
-    from django.http import HttpResponseRedirect
-    return HttpResponseRedirect(f"{settings.MEDIA_URL}screenshots/{filename}")
+    # Take the screenshot with CSS and fonts included
+    success = take_screenshot(full_url, output_path)
+    
+    if success:
+        # Redirect to the image
+        from django.http import HttpResponseRedirect
+        return HttpResponseRedirect(f"{settings.MEDIA_URL}screenshots/{filename}")
+    else:
+        # If screenshot failed, show an error
+        from django.contrib import messages
+        messages.error(request, "Failed to generate screenshot")
   
+  # Render the template normally
   return render(request, 'specials/print.html', context)
