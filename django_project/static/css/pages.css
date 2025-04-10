@@ -12,11 +12,15 @@ div.special-section h2 {
 
 div.special-section.header {
   text-align: center;
-  color: #333;
+  color: #EFEFEF;
+  text-transform: uppercase;
   padding: 28px 0;
   margin-bottom: 0;
   background: url('../img/checkerboard.png'), rgba(0, 0, 0, .5);
   background-size: 150px }
+div.special-section.header h2 {
+  letter-spacing: 3px;
+  font-size: 22px }
 
 
 ul.specials,

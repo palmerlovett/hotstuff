@@ -2,15 +2,15 @@
 {% block content %}
 <div class="content-size">
   <div class="content-card no-pad">
-      
-    <div class="paper">
-      <div class="special-section header">
-        <h1>HOT STUFF RESTAURANT</h1>
-        <h2>Daily Lunch Specials</h2>
-        <div class="date">
-          {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
-        </div>
+    <div class="special-section header">
+      <h1>HOT STUFF RESTAURANT</h1>
+      <h2>Daily Lunch Specials</h2>
+      <div class="date">
+        {{ latest_special.date_day }} {{ latest_special.date_formatted }}
       </div>
+    </div>  
+    <div class="paper">
+    
       <div class="padextra">
         <div class="special-section specials">
           <h2>Lunch Hot Plates</h2>

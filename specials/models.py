@@ -190,7 +190,7 @@ class DailySpecial(models.Model):
 
 
   def date_formatted(self):
-    return self.date.strftime('%m/%d/%y')
+    return self.date.strftime('%B %d, %Y')
 
   def date_day(self):
     return self.date.strftime("%A")

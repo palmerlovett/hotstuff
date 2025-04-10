@@ -11,9 +11,11 @@ header .logo {}
 
 nav.page {
   display: flex;
-  justify-content: space-between }
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly }
 
-  nav.page a {
+  nav.page div {
     font-family: 'Carton';
     text-align: center }
 

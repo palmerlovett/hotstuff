@@ -30,3 +30,6 @@ h2 { text-transform: uppercase }
   background: var(--hf-red);
   margin-bottom: 21px;
   padding: var(--pad) }
+
+
+@media print { header.page { display: none } }
