@@ -61,4 +61,22 @@ def index(request):
 
 def print(request):
   context = create_specials_objects()
+  # Render the template, but also generate an image for printing if needed
+  if request.GET.get('image', False):
+    from django.conf import settings
+    import os
+    from django_project.utils import take_screenshot
+    
+    # Generate a dated filename
+    from datetime import datetime
+    filename = f"daily_special_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+    output_path = os.path.join(settings.MEDIA_ROOT, 'screenshots', filename)
+    
+    # Generate the image (not an actual screenshot anymore)
+    take_screenshot('specials/print/', output_path)
+    
+    # Redirect to the image
+    from django.http import HttpResponseRedirect
+    return HttpResponseRedirect(f"{settings.MEDIA_URL}screenshots/{filename}")
+  
   return render(request, 'specials/print.html', context)
