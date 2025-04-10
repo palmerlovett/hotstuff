@@ -27,6 +27,7 @@ h2 { text-transform: uppercase }
 
 .content-size {
   max-width: var(--content-size);
+
   margin: auto }
 
 .content-card {
@@ -38,4 +39,9 @@ h2 { text-transform: uppercase }
   padding: var(--pad) }
 
 
-@media print { header.page { display: none } }
+@media print {
+  .content-size {
+      page-break-inside: avoid;
+  break-inside:avoid;
+  }
+  header.page { display: none } }
