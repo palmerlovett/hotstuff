@@ -1,35 +1,47 @@
 
-import sys
+import os
 import time
-from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
-class Screenshot(QWebEngineView):
-    def __init__(self):
-        self.app = QApplication(sys.argv)
-        super().__init__()
-        self._loaded = False
-        self.loadFinished.connect(self._loadFinished)
-
-    def capture(self, url, output_file):
-        """Load the URL and capture a screenshot."""
-        self.load(QUrl(url))
-        self.wait_load()
-        # Set viewport size
-        self.resize(1024, 768)
-        # Render image
-        self.grab().save(output_file)
-        print(f"Saving screenshot to {output_file}")
+def take_screenshot(url, output_file):
+    """
+    Take a screenshot of a webpage using Selenium and Chrome in headless mode.
+    
+    Args:
+        url (str): URL to capture
+        output_file (str): Path to save the screenshot
+        
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        # Set up Chrome options
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # Run in headless mode (no UI)
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--window-size=1920,1080")  # Set window size
+        
+        # Initialize the Chrome driver
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        
+        # Navigate to the URL
+        driver.get(url)
+        
+        # Wait for page to load completely
+        time.sleep(2)
+        
+        # Take screenshot
+        driver.save_screenshot(output_file)
+        print(f"Screenshot saved to {output_file}")
+        
+        # Close the browser
+        driver.quit()
         return True
-
-    def wait_load(self, delay=0):
-        """Wait until page is loaded."""
-        while not self._loaded:
-            self.app.processEvents()
-            time.sleep(delay)
-        self._loaded = False
-
-    def _loadFinished(self, result):
-        """Signal handler for loadFinished signal."""
-        self._loaded = True
+    except Exception as e:
+        print(f"Error taking screenshot: {e}")
+        return False
