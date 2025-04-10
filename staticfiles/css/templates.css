@@ -1,48 +1,32 @@
+/* ================================
+   HOT STUFF MAIN TEMPLATE
+   colors and layouts
+ =================================*/
 
-/* Templates CSS */
-/* For page templates and layouts */
+html, body { padding: 0; margin: 0 }
 
-/* Basic Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
+html {
+  font-family: 'Lucida Grande' }
 
-/* Two Column Layout */
-.two-column {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-}
+body { background: linear-gradient(to bottom, rgba(255, 137, 41, .3), rgba(0, 0, 0, 1)) }
 
-.two-column .main-content {
-  flex: 2;
-}
+h1, h2, h3, h4, h5 h6 { margin: 0 }
 
-.two-column .sidebar {
-  flex: 1;
-}
+h1 {
+  text-align: center;
+  font-size: 72px;
+  font-family: 'Carton' }
 
-/* Dashboard Layout */
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-}
 
-/* Content Area */
-.content-area {
-  padding: var(--spacing-lg) 0;
-}
 
-/* For responsive layouts */
-@media (max-width: 768px) {
-  .two-column {
-    flex-direction: column;
-  }
-  
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
-}
+.content-size {
+  max-width: 900px;
+  margin: auto }
+
+.content-card {
+  color: var(--goldenrod);
+  font-size: 16px;
+  border: 1px solid var(--goldenrod);
+  background: #6e1212;
+  margin-bottom: 21px;
+  padding: var(--pad) }

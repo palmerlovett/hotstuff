@@ -1,47 +1,16 @@
-
-/* Atoms CSS */
-/* For basic elements and smallest components */
-
 :root {
-  --primary-color: #4a90e2;
-  --secondary-color: #50e3c2;
-  --text-color: #333333;
-  --light-bg: #f5f5f5;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
+  --pad: 28px 42px;
+  --padlil: 7px 21px;
+  --goldenrod: #d7bd19;
+    --goldenrod: #ff8929;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-color);
-}
+.pad { padding: var(--pad) }
 
-p, li, a {
-  line-height: 1.5;
-}
+.padlil { padding: var(--padlil) !important }
+.no-pad { padding: 0 !important }
+.no-marg { margin: 0 }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-/* Form elements */
-input, select, textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: var(--spacing-md);
-}
+a {
+  text-decoration: none; 
+  color: inherit }

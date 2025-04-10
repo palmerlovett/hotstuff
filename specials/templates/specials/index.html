@@ -1,45 +1,56 @@
 {% extends '../hotstuff.html' %}
 {% block content %}
-<h1>Daily Specials</h1>
-
-  <div class="special-date">
-    {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
+<div class="content-size">
+  <div class="content-card no-pad">
+      
+    <div class="paper">
+      <div class="special-section header">
+        <h1>HOT STUFF RESTAURANT</h1>
+        <h2>Daily Lunch Specials</h2>
+        <div class="date">
+          {{ latest_special.date_day }} - {{ latest_special.date_formatted }}
+        </div>
+      </div>
+      <div class="padextra">
+        <div class="special-section specials">
+          <h2>Lunch Hot Plates</h2>
+          <ul class="specials">
+            {% for special in specials_list %}
+              <li class="special-item">
+                <span class="tall">{{ special.special.name }}</span>
+                (w/{% if special.side %}<span class="tall">{{ special.side }}</span> plus {% endif %}
+                {{ special.special.number_of_sides }} sides)
+                <span class="price">$ {{ special.special.price }}</span>
+              </li>
+            {% empty %}
+              <li>No specials available today.</li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class="special-section sides">
+          <h2>Sides</h2>
+          <ul class="sides">
+            {% for veggie in veggies_list %}
+              <li><span class="tall">{{ veggie.name }}</span></li>
+            {% empty %}
+              <li>No veggies available today.</li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class="special-section sweets">
+          <h2>Home Made Sweets ${{ desserts_list.1.dessert.price }}</h2>
+          <ul class="sweets">
+            {% for dessert in desserts_list %}
+              <li><strong>{{ dessert.letter }} * </strong> {{ dessert.dessert.name }}</li>
+            {% empty %}
+              <li>No desserts available today.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <div class="special-section">
-    <h2>Today's Specials</h2>
-    <ul class="specials">
-      {% for special in specials_list %}
-        <li class="special-item">
-          {{ special.special.name }}
-          (w/{% if special.side %}{{ special.side }} plus {% endif %}
-          {{ special.special.number_of_sides }} sides)
-        </li>
-      {% empty %}
-        <li>No specials available today.</li>
-      {% endfor %}
-    </ul>
-  </div>
-  
-  <div class="special-section">
-    <h2>Today's Veggies</h2>
-    <ul class="sides">
-      {% for veggie in veggies_list %}
-        <li>{{ veggie.name }}</li>
-      {% empty %}
-        <li>No veggies available today.</li>
-      {% endfor %}
-    </ul>
-  </div>
-  
-  <div class="special-section">
-    <h2>Today's Desserts</h2>
-    <ul class="desserts">
-      {% for dessert in desserts_list %}
-        <li><strong>{{ dessert.letter }}.</strong> {{ dessert.name }} - ${{ dessert.price }}</li>
-      {% empty %}
-        <li>No desserts available today.</li>
-      {% endfor %}
-    </ul>
-  </div>
+</div>
 {% endblock %}

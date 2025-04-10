@@ -6,8 +6,22 @@
     {% include "parts/styles.html" %}
   </head>
   <body>
-    <div class="container">
+    <header class="page">
+      <div class="content-size">
+        <div class="logo">
+          <span>Hot Stuff</span>
+        </div>
+        <div class="content-card padlil">
+          <nav class="page">
+            <div><a class="menu-item" href="about/">About</a></div>
+            <div><a class="menu-item" href="menu/">Menu</a></div>
+            <div><a class="menu-item" href="order-now/">Order Now</a></div>            
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="page">
       {% block content %}{% endblock %}
-    </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,59 @@
+
+
+
+div.special-section {
+  margin-bottom: 35px }
+
+div.special-section h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-size: 16px }
+
+div.special-section.header {
+  text-align: center;
+  color: #333;
+  padding: 28px 0;
+  margin-bottom: 0;
+  background: url('../img/checkerboard.png'), rgba(0, 0, 0, .5);
+  background-size: 150px }
+
+
+ul.specials,
+ul.sides,
+ul.sweets { padding: 0 0 0 21px; margin: 0 }
+
+ul.specials {
+  position: relative;
+  list-style-type: upper-alpha }
+  ul.specials:before {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    text-align: right;
+    text-decoration: underline;
+    content: 'Price' }
+ul.sides {
+  list-style-type: number }
+
+
+ul.specials li,
+ul.sides li {
+  padding: 7px 0 }
+ul.specials li::marker,
+ul.sides li::marker {
+  font-weight: bold }
+
+ul.specials li span.price { display: inline-block; float: right }
+
+ul.sides { columns: 2 }
+
+div.sweets {
+  font-weight: bold;
+  text-align: center }
+
+ul.sweets {
+  padding: 0;
+  list-style-type: none }

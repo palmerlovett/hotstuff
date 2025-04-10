@@ -162,25 +162,26 @@ class DailySpecial(models.Model):
                                related_name='daily_special_veggie_12',
                                on_delete=models.SET_NULL)
 
-  dessert_1 = models.ForeignKey(Dessert, 
+  
+  w_dessert = models.ForeignKey(Dessert, 
                                 null=True,
                                 default="",
                                 blank=True,
                                 related_name='daily_special_dessert_1',
                                 on_delete=models.SET_NULL)
-  dessert_2 = models.ForeignKey(Dessert, 
+  x_dessert = models.ForeignKey(Dessert, 
                                 null=True,
                                 default="",
                                 blank=True,
                                 related_name='daily_special_dessert_2',
                                 on_delete=models.SET_NULL)
-  dessert_3 = models.ForeignKey(Dessert, 
+  y_dessert = models.ForeignKey(Dessert, 
                                 null=True,
                                 default="",
                                 blank=True,
                                 related_name='daily_special_dessert_3',
                                 on_delete=models.SET_NULL)
-  dessert_4 = models.ForeignKey(Dessert, 
+  z_dessert = models.ForeignKey(Dessert, 
                                 null=True,
                                 default="",
                                 blank=True,

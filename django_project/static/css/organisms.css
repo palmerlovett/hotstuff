@@ -1,0 +1,25 @@
+/* ================================
+   HOT STUFF LOGO
+   logo in header
+ =================================*/
+
+header .logo {}
+  header .logo span {
+    font-size: 54px;
+    text-transform: uppercase;
+    font-family: 'Impact' }
+
+nav.page {
+  display: flex;
+  justify-content: space-between }
+
+  nav.page a {
+    font-family: 'Carton';
+    text-align: center }
+
+
+
+
+.paper {
+  color: #222;
+  background: url('../img/45-degree-fabric-light.png'), #EFEFEF }

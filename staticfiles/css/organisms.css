@@ -1,51 +1,33 @@
+/* ================================
+   HOT STUFF LOGO
+   logo in header
+ =================================*/
 
-/* Organisms CSS */
-/* For more complex UI components composed of molecules and atoms */
+header .logo {}
+  header .logo span {
+    font-size: 54px;
+    text-transform: uppercase;
+    font-family: 'Impact' }
 
-/* Header */
-.site-header {
+nav.page {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-md);
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  justify-content: space-evenly }
 
-/* Navigation */
-.main-nav {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  nav.page a {
+    font-family: 'Carton';
+    text-align: center }
 
-.main-nav li {
-  margin-right: var(--spacing-md);
-}
 
-.main-nav li:last-child {
-  margin-right: 0;
-}
 
-/* Special Section */
-.special-section {
-  margin-bottom: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background-color: var(--light-bg);
-  border-radius: 4px;
-}
-
-.special-section h2 {
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-/* Footer */
-.site-footer {
-  padding: var(--spacing-lg) var(--spacing-md);
-  background-color: #333;
-  color: white;
+.banner {
   text-align: center;
-}
+  color: #FFF;
+  background-size: 300%;
+  background: url('../img/checkerboard.png'), #FFF }
+.banner h1 {
+  background: url('../img/black-orchid.png'),rgba(0, 0, 0, .5) }
+
+.paper {
+  padding: var(--pad);
+  color: #222;
+  background: url('../img/45-degree-fabric-light.png'), #EFEFEF }
