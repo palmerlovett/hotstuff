@@ -1,35 +1,35 @@
+
+import sys
 import time
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from PyQt4.QtWebKit import *
+from PyQt5.QtCore import QUrl
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 
-class Screenshot(QWebView):
-  def __init__(self):
-    self.app = QApplication(sys.argv)
-    QWebView.__init__(self)
-    self._loaded = False
-    self.loadFinished.connect(self._loadFinished)
+class Screenshot(QWebEngineView):
+    def __init__(self):
+        self.app = QApplication(sys.argv)
+        super().__init__()
+        self._loaded = False
+        self.loadFinished.connect(self._loadFinished)
 
-  def capture(self, url, output_file):
-    self.load(QUrl(url))
-    self.wait_load()
-    # set to webpage size
-    frame = self.page().mainFrame()
-    self.page().setViewportSize(frame.contentsSize())
-    # render image
-    image = QImage(self.page().viewportSize(), QImage.Format_ARGB32)
-    painter = QPainter(image)
-    frame.render(painter)
-    painter.end()
-    print 'saving', output_file
-    image.save(output_file)
+    def capture(self, url, output_file):
+        """Load the URL and capture a screenshot."""
+        self.load(QUrl(url))
+        self.wait_load()
+        # Set viewport size
+        self.resize(1024, 768)
+        # Render image
+        self.grab().save(output_file)
+        print(f"Saving screenshot to {output_file}")
+        return True
 
-  def wait_load(self, delay=0):
-    # process app events until page loaded
-    while not self._loaded:
-        self.app.processEvents()
-        time.sleep(delay)
-    self._loaded = False
+    def wait_load(self, delay=0):
+        """Wait until page is loaded."""
+        while not self._loaded:
+            self.app.processEvents()
+            time.sleep(delay)
+        self._loaded = False
 
-  def _loadFinished(self, result):
-    self._loaded = True
+    def _loadFinished(self, result):
+        """Signal handler for loadFinished signal."""
+        self._loaded = True
