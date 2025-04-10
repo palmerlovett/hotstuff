@@ -89,7 +89,8 @@ def take_screenshot(url, output_file):
 
             # Wait for page to fully render (including CSS, fonts, images)
             # Sleep before taking screenshot to allow page to render
-            time.sleep(1)  # Wait 1 second for page to render
+            print("Waiting 3 seconds for fonts and styles to load...")
+            time.sleep(3)  # Increased wait time to ensure fonts load properly
             img_files = hti.screenshot(
                 url=full_url, 
                 save_as=os.path.basename(output_file)
