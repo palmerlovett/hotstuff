@@ -17,7 +17,7 @@ nav.page {
   justify-content: space-evenly }
 
   nav.page div {
-    font-family: 'Cartonss';
+    font-family: var(--head-fonts);
     display: flex;
     justify-content: center;
     width: 100% }

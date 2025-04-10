@@ -6,6 +6,9 @@
   --hs-red: #6e1212;
 
   --content-size: 760px;
+
+  --head-fonts: 'Cartons', 'Georgia';
+  --html-fonts: 'Helvetica', 'Arial';
 }
 
 .pad { padding: var(--pad) }

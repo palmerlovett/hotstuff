@@ -39,20 +39,25 @@ ul.specials {
     text-align: right;
     text-decoration: underline;
     content: 'Price' }
-ul.sides {
-  list-style-type: number }
+
 
 
 ul.specials li,
 ul.sides li {
-  padding: 7px 0 }
+  padding: 14px 0 14px 14px }
+
+ul.sides li:nth-child(n+6) {
+  margin-right: -56px;
+  margin-left: 56px }
 ul.specials li::marker,
 ul.sides li::marker {
   font-weight: bold }
 
 ul.specials li span.price { display: inline-block; float: right }
 
-ul.sides { columns: 2 }
+ul.sides { 
+  list-style-type: number;
+  columns: 2 }
 
 div.sweets {
   font-weight: bold;
@@ -60,6 +65,7 @@ div.sweets {
 
 ul.sweets {
   padding: 0;
+  line-height: 2;
   list-style-type: none }
 
 

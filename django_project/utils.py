@@ -112,7 +112,7 @@ def take_screenshot(url, output_file):
         # Create a fallback image with error message
         try:
             # Create a simple image with error text
-            img = Image.new('RGB', (800, 600), color=(255, 255, 255))
+            img = Image.new('RGB', (760, 600), color=(255, 255, 255))
             from PIL import ImageDraw, ImageFont
             draw = ImageDraw.Draw(img)
             draw.text((20, 20), f"Error capturing screenshot: {str(e)}", fill=(0, 0, 0))
