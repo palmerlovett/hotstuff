@@ -22,3 +22,11 @@ a {
   color: inherit }
 
 .tall { text-transform: uppercase }
+
+@media print {
+  .no-pad-print { padding: 0 }
+  .no-pad-x-print {
+    padding-top: 0;
+    padding-bottom: 0 }
+
+}
