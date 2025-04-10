@@ -72,4 +72,29 @@ class DailySpecialAdmin(admin.ModelAdmin):
             # Set default date to today
             from datetime import date
             form.base_fields['date'].initial = date.today()
+            
+            # Get the most recent daily special entry
+            latest_special = DailySpecial.objects.order_by('-date').first()
+            if latest_special:
+                # Set defaults for specials
+                for letter in ['a', 'b', 'c', 'd', 'e', 'f']:
+                    special_field = f"{letter}_special"
+                    side_field = f"{letter}_special_w_side"
+                    if hasattr(latest_special, special_field):
+                        form.base_fields[special_field].initial = getattr(latest_special, special_field)
+                    if hasattr(latest_special, side_field):
+                        form.base_fields[side_field].initial = getattr(latest_special, side_field)
+                
+                # Set defaults for veggies
+                for num in range(1, 13):
+                    veggie_field = f"veggie_{num}"
+                    if hasattr(latest_special, veggie_field):
+                        form.base_fields[veggie_field].initial = getattr(latest_special, veggie_field)
+                
+                # Set defaults for desserts
+                for letter in ['w', 'x', 'y', 'z']:
+                    dessert_field = f"{letter}_dessert"
+                    if hasattr(latest_special, dessert_field):
+                        form.base_fields[dessert_field].initial = getattr(latest_special, dessert_field)
+        
         return form
