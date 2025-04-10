@@ -88,10 +88,11 @@ def take_screenshot(url, output_file):
             print(f"Attempting to capture: {full_url}")
 
             # Wait for page to fully render (including CSS, fonts, images)
+            # Sleep before taking screenshot to allow page to render
+            time.sleep(1)  # Wait 1 second for page to render
             img_files = hti.screenshot(
                 url=full_url, 
-                save_as=os.path.basename(output_file),
-                delay=1  # Wait 1 second for page to render
+                save_as=os.path.basename(output_file)
             )
 
             # Check if the screenshot was created
