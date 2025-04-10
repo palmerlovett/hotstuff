@@ -71,7 +71,7 @@ def take_screenshot(url, output_file):
             if chrome_path:
                 hti = Html2Image(
                     output_path=temp_dir,
-                    size=(800, 1100),
+                    size=(760, 1400),
                     browser_executable=chrome_path,
                     custom_flags=['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', '--headless'],
                 )
@@ -80,7 +80,7 @@ def take_screenshot(url, output_file):
                 print("No Chrome executable found, using default configuration")
                 hti = Html2Image(
                     output_path=temp_dir,
-                    size=(800, 1100),
+                    size=(760, 1400),
                     custom_flags=['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', '--headless'],
                 )
 
@@ -89,8 +89,8 @@ def take_screenshot(url, output_file):
 
             # Wait for page to fully render (including CSS, fonts, images)
             # Sleep before taking screenshot to allow page to render
-            print("Waiting 3 seconds for fonts and styles to load...")
-            time.sleep(3)  # Increased wait time to ensure fonts load properly
+            print("Waiting 7 seconds for fonts and styles to load...")
+            time.sleep(7)  # Increased wait time to ensure fonts load properly
             img_files = hti.screenshot(
                 url=full_url, 
                 save_as=os.path.basename(output_file)
