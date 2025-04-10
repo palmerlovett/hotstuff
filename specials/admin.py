@@ -61,7 +61,7 @@ class DailySpecialAdmin(admin.ModelAdmin):
             'classes': ('columns-2', 'even-selects'),
         }),
         ('Desserts', {
-            'fields': ['w_dessert', 'x_dessert', 'y_dessert', 'z_dessert'],
+            'fields': ['z_dessert', 'y_dessert', 'x_dessert', 'w_dessert'],
             'classes': ('columns-2', 'even-selects',),
         }),
     )

@@ -8,7 +8,13 @@ html, body { padding: 0; margin: 0 }
 html {
   font-family: 'Arial' }
 
-body { background: linear-gradient(to bottom, rgba(255, 137, 41, .3), rgba(0, 0, 0, 1)) }
+body {
+  background: linear-gradient(to bottom, rgba(255, 137, 41, .3), rgba(0, 0, 0, 1)),
+  url('../img/hs-web-background.png');
+  background-attachment: fixed;
+  background-position: top center }
+
+body.to-print { background: white }
 
 h1, h2, h3, h4, h5 h6 { margin: 0 }
 
@@ -24,10 +30,10 @@ h2 { text-transform: uppercase }
   margin: auto }
 
 .content-card {
-  color: var(--goldenrod);
+  color: #EFEFEF;
   font-size: 16px;
   border: 1px solid var(--goldenrod);
-  background: var(--hf-red);
+  background: var(--hs-red);
   margin-bottom: 21px;
   padding: var(--pad) }
 

@@ -9,6 +9,7 @@ class Veggie(models.Model):
   class Meta:
     verbose_name = "Vegetable"
     verbose_name_plural = "Vegetables"
+    ordering = ['name']
   
   def __str__(self):
     return self.name
@@ -22,6 +23,7 @@ class Special(models.Model):
   class Meta:
     verbose_name = "Special"
     verbose_name_plural = "Specials"
+    ordering = ['name']
 
   def __str__(self):
      return f'{self.name}'
@@ -34,7 +36,8 @@ class Dessert(models.Model):
   class Meta:
     verbose_name = "Dessert"
     verbose_name_plural = "Desserts"
-  
+    ordering = ['name']
+    
   def __str__(self):
     return self.name
 

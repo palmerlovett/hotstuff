@@ -6,9 +6,10 @@
 html, body { padding: 0; margin: 0 }
 
 html {
-  font-family: 'Lucida Grande' }
+  font-family: 'Arial' }
 
-body { background: linear-gradient(to bottom, rgba(255, 137, 41, .3), rgba(0, 0, 0, 1)) }
+body { background: url('../img/hs-web-background.png'),
+                   linear-gradient(to bottom, rgba(255, 137, 41, .3), rgba(0, 0, 0, 1)) }
 
 h1, h2, h3, h4, h5 h6 { margin: 0 }
 
@@ -17,16 +18,19 @@ h1 {
   font-size: 72px;
   font-family: 'Carton' }
 
-
+h2 { text-transform: uppercase }
 
 .content-size {
-  max-width: 900px;
+  max-width: var(--content-size);
   margin: auto }
 
 .content-card {
   color: var(--goldenrod);
   font-size: 16px;
   border: 1px solid var(--goldenrod);
-  background: #6e1212;
+  background: var(--hf-red);
   margin-bottom: 21px;
   padding: var(--pad) }
+
+
+@media print { header.page { display: none } }

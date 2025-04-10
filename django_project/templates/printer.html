@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hot Stuff To Print</title>
+    {% load static %}
+    {% include "parts/styles.html" %}
+  </head>
+  <body class="to-print">
+    <main class="page">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
