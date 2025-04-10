@@ -11,6 +11,7 @@
     pkgs.xorg.libXrandr
     pkgs.alsaLib
     pkgs.atk
+    pkgs.at-spi2-atk
     pkgs.cairo
     pkgs.cups
     pkgs.dbus
@@ -29,6 +30,9 @@
     pkgs.libxkbcommon
     pkgs.mesa
     pkgs.gnome2.GConf
+    pkgs.libudev-zero
+    pkgs.xorg.libxcb
+    pkgs.libpulseaudio
     pkgs.gitFull
   ];
 }
