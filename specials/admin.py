@@ -27,6 +27,7 @@ class DailySpecialAdmin(admin.ModelAdmin):
     list_filter = ('date',)
     date_hierarchy = 'date'
     search_fields = ('a_special__name', 'b_special__name', 'c_special__name')
+    change_form_template = 'admin/specials/dailyspecial/change_form.html'
     
     fieldsets = (
         ('Date Information', {
