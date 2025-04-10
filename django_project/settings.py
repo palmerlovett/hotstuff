@@ -137,3 +137,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Base URL for generating URLs for screenshots
+# This should be set to your actual deployment URL in production
+BASE_URL = 'http://localhost:3000'

@@ -204,11 +204,37 @@ class DailySpecial(models.Model):
   def __str__(self):
     return f"{self.date_day()} Specials, {self.date_formatted()}"
 
-  
-    def save(self, *args, **kwargs):
-      # Add functionalities here if needed before saving the DailySpecial instance
-      super(DailySpecial, self).save(*args, **kwargs)
-      import sys
+  def save(self, *args, **kwargs):
+    # First call the original save method to ensure the instance is saved
+    super(DailySpecial, self).save(*args, **kwargs)
+    
+    try:
+      # Import needed modules here to avoid circular imports
+      from django.conf import settings
+      import os
+      from django_project.utils import take_screenshot
+      
+      # Get the base URL from settings or use a default
+      base_url = getattr(settings, 'BASE_URL', 'http://localhost:3000')
+      
+      # Create directory for screenshots if it doesn't exist
+      screenshots_dir = os.path.join(settings.MEDIA_ROOT, 'screenshots')
+      os.makedirs(screenshots_dir, exist_ok=True)
+      
+      # Define the screenshot filename based on date
+      filename = f"daily_special_{self.date.strftime('%Y%m%d')}.png"
+      filepath = os.path.join(screenshots_dir, filename)
+      
+      # Capture the screenshot
+      print(f"Taking screenshot of {base_url}/specials/print/")
+      success = take_screenshot(f"{base_url}/specials/print/", filepath)
+      
+      if success:
+        # Update the special_image field with the relative path
+        relative_path = os.path.join('screenshots', filename)
+        self.__class__.objects.filter(pk=self.pk).update(special_image=relative_path)
+    except Exception as e:
+      print(f"Error taking screenshot: {e}")
 
   class Meta:
     verbose_name = "Daily Special"

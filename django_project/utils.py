@@ -20,10 +20,12 @@ def take_screenshot(url, output_file):
   try:
     # Set up Chrome options
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Run in headless mode (no UI)
+    chrome_options.add_argument("--headless=new")  # Run in headless mode (no UI)
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--window-size=800,500")  # Set window size
+    chrome_options.add_argument("--window-size=1200,800")  # Larger size for better quality
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--hide-scrollbars")
     
     # Initialize the Chrome driver
     service = Service(ChromeDriverManager().install())
@@ -33,7 +35,10 @@ def take_screenshot(url, output_file):
     driver.get(url)
     
     # Wait for page to load completely
-    time.sleep(2)
+    time.sleep(3)
+    
+    # Execute JavaScript to make sure everything is rendered
+    driver.execute_script("document.body.style.overflow = 'hidden';")
     
     # Take screenshot
     driver.save_screenshot(output_file)
