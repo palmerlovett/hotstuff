@@ -200,7 +200,13 @@ class DailySpecial(models.Model):
   
   def __str__(self):
     return f"{self.date_day()} Specials, {self.date_formatted()}"
-    
+
+  
+    def save(self, *args, **kwargs):
+      # Add functionalities here if needed before saving the DailySpecial instance
+      super(DailySpecial, self).save(*args, **kwargs)
+      import sys
+
   class Meta:
     verbose_name = "Daily Special"
     verbose_name_plural = "Daily Specials"
