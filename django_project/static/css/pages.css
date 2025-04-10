@@ -61,3 +61,24 @@ div.sweets {
 ul.sweets {
   padding: 0;
   list-style-type: none }
+
+
+/* Print-specific styles */
+@media print {
+  div.special-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .content-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  ul.specials, 
+  ul.sides,
+  ul.sweets {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
