@@ -46,6 +46,11 @@ def take_screenshot(url, output_file):
     try:
         # Create output directory if it doesn't exist
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
+        
+        # Check if file already exists and delete it
+        if os.path.exists(output_file):
+            print(f"Found existing file at {output_file}, removing it before saving new screenshot")
+            os.remove(output_file)
 
         # Get the actual URL
         if not url.startswith(('http://', 'https://')):
