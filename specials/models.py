@@ -190,8 +190,11 @@ class DailySpecial(models.Model):
                                 blank=True,
                                 related_name='daily_special_dessert_4',
                                 on_delete=models.SET_NULL)
+  
+  special_image = models.ImageField(upload_to='special_images/', blank=True)
 
 
+  
   def date_formatted(self):
     return self.date.strftime('%B %d, %Y')
 
