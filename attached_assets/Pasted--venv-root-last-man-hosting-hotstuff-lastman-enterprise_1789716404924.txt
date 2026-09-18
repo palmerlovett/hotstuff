@@ -1,0 +1,148 @@
+(.venv) root@last-man-hosting:~/hotstuff.lastman.enterprises# exec .venv/bin/gunicorn django_project.wsgi:application --bind 127.0.0.1:8010
+[2026-09-18 07:24:40 +0000] [5527] [INFO] Starting gunicorn 26.2.0
+[2026-09-18 07:24:40 +0000] [5527] [INFO] Listening at: http://127.0.0.1:8010 (5527)
+[2026-09-18 07:24:40 +0000] [5527] [INFO] Using worker: sync
+[2026-09-18 07:24:40 +0000] [5619] [INFO] Booting worker with pid: 5619
+[2026-09-18 07:24:40 +0000] [5527] [INFO] Control socket listening at /run/user/0/gunicorn.ctl
+[2026-09-18 07:24:44 +0000] [5619] [ERROR] Error handling request GET /
+Traceback (most recent call last):
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'hotstuff.lastman.enterprises'. You may need to add 'hotstuff.lastman.enterprises' to ALLOWED_HOSTS.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 124, in response_for_exception
+    security_logger.error(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1568, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/log.py", line 125, in emit
+    reporter.get_traceback_text(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 435, in get_traceback_text
+    c = Context(self.get_traceback_data(), autoescape=False, use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 397, in get_traceback_data
+    "settings": self.filter.get_safe_settings(),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 156, in get_safe_settings
+    settings_dict[k] = self.cleanse_setting(k, getattr(settings, k))
+                                               ^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/conf/__init__.py", line 98, in __getattr__
+    raise ImproperlyConfigured("The SECRET_KEY setting must not be empty.")
+django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 143, in response_for_exception
+    log_response(
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/log.py", line 241, in log_response
+    getattr(logger, level)(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1568, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/log.py", line 125, in emit
+    reporter.get_traceback_text(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 435, in get_traceback_text
+    c = Context(self.get_traceback_data(), autoescape=False, use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 397, in get_traceback_data
+    "settings": self.filter.get_safe_settings(),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 156, in get_safe_settings
+    settings_dict[k] = self.cleanse_setting(k, getattr(settings, k))
+                                               ^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/conf/__init__.py", line 98, in __getattr__
+    raise ImproperlyConfigured("The SECRET_KEY setting must not be empty.")
+django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/gunicorn/workers/sync.py", line 141, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/gunicorn/workers/sync.py", line 184, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/wsgi.py", line 124, in __call__
+    response = self.get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 140, in get_response
+    response = self._middleware_chain(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 143, in response_for_exception
+    log_response(
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/log.py", line 241, in log_response
+    getattr(logger, level)(
+  File "/usr/lib/python3.12/logging/__init__.py", line 1568, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1684, in _log
+    self.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1762, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1028, in handle
+    self.emit(record)
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/utils/log.py", line 125, in emit
+    reporter.get_traceback_text(),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 435, in get_traceback_text
+    c = Context(self.get_traceback_data(), autoescape=False, use_l10n=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 397, in get_traceback_data
+    "settings": self.filter.get_safe_settings(),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/views/debug.py", line 156, in get_safe_settings
+    settings_dict[k] = self.cleanse_setting(k, getattr(settings, k))
+                                               ^^^^^^^^^^^^^^^^^^^^
+  File "/root/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/conf/__init__.py", line 98, in __getattr__
+    raise ImproperlyConfigured("The SECRET_KEY setting must not be empty.")
