@@ -14,7 +14,8 @@ body {
   background-attachment: fixed;
   background-position: top center }
 
-body.to-print { background: white }
+body.to-print { background: url('../img/45-degree-fabric-light.png'), #EFEFEF; }
+
 
 h1, h2, h3, h4, h5 h6 { margin: 0 }
 
@@ -39,11 +40,13 @@ h2 { text-transform: uppercase }
   margin-bottom: 21px;
   padding: var(--pad) }
 
+.to-print .content-card { border-width: 2px; border-bottom: 0 }
+
 @media print {
   body { outline: 0 }
   .content-card { border: 0px solid black }
   .content-size {
-      page-break-inside: avoid;
-  break-inside:avoid;
-  }
-  header.page { display: none } }
+    page-break-inside: avoid;
+    break-inside:avoid }
+  header.page { display: none }
+}

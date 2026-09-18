@@ -107,6 +107,7 @@ ul.sweets {
 
 /* Print-specific styles */
 @media print {
+
   div.special-section.header h1.image-fallback { color: black; font-size: 49px }
   div.special-section.header {
     padding-bottom: 0;

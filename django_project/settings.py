@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [".replit.dev", ".replit.app", ".lastman.enterprises"]
 CSRF_TRUSTED_ORIGINS = ["https://*.replit.dev", "https://*.replit.app", "https://*.lastman.enterprises"]
