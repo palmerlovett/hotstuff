@@ -1,0 +1,72 @@
+<div class="special-section header">
+  <h1 class="image-fallback" data-src="../img/hot-stuff-carton.png">HOT STUFF RESTAURANT</h1>
+  <h2>Daily Lunch Specials</h2>
+  <div class="date">
+    {{ latest_special.date_day }} {{ latest_special.date_formatted }}
+  </div>
+</div>  
+<div class="paper">
+  <div class="padextra no-pad-print">
+    <div class="special-section specials">
+      <ul class="specials">
+        {% for special in specials_list %}
+          <li class="special-item">
+            <div class="name-side">
+              <span class="name"><strong class="tall">{{ special.special.name }}</strong>
+              (w/{% if special.special.w_extra or special.side %}
+                {% if special.special.w_extra %}{{ special.special.w_extra }}{% endif %}
+                {% if special.side %}{% if special.special.w_extra %} and {% endif %}{{ special.side }}{% endif %} and
+              {% endif %}
+              </span>
+              <span class="veggie">
+                {% if special.special.number_of_sides %}
+                  {{ special.special.number_of_sides }}
+                {% else %}
+                  no
+                {% endif %} sides)
+                
+              </span>
+            </div>
+            <div class="price">$ {{ special.special.price }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <div class="special-section sides">
+      <h2>Sides</h2>
+      <ol class="sides">
+        {% for veggie in veggies_list %}
+          <li><span class="tall">{{ veggie.name }}</span></li>
+        {% empty %}
+          <li>No veggies available today.</li>
+        {% endfor %}
+      </ol>
+      {% if extra_veggies_list %}
+      <ol start="11" class="sides extra">
+        {% for extra_veggie in extra_veggies_list %}
+          <li><span class="tall">{{ extra_veggie.name }}</span></li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+    </div>
+
+    <div style="overflow:hidden; word-wrap:none; margin-bottom: 28px">
+      ===========================================================================================================================================
+    </div>
+    
+    <div class="special-section sweets">
+      <h2>Home Made Sweets</h2>
+      <ul class="sweets">
+        {% for dessert in desserts_list %}
+          <li><strong>{{ dessert.letter }} * </strong> {{ dessert.dessert.name }}</li>
+        {% empty %}
+          <li>No desserts available today.</li>
+        {% endfor %}
+        <li>${{ desserts_list.0.dessert.price }}</li>
+      </ul>
+    </div>
+    <div class="special-section call-to-order">
+      <span class="tall"><center>For Takeout Orders please Call <br><br> <strong>225/ 256-5047</strong> or <strong>225/ 256-4347</strong></center></span>
+  </div>
+</div>
