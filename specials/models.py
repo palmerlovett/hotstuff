@@ -4,7 +4,7 @@ from django.db import models
 
 class Veggie(models.Model):
   veggie_id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=100, verbose_name="Veggie Name")
+  name = models.CharField(max_length=24, verbose_name="Veggie Name")
   
   class Meta:
     verbose_name = "Vegetable"
@@ -17,6 +17,7 @@ class Veggie(models.Model):
 class Special(models.Model):
   daily_special_id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=255, verbose_name="Special Name")
+  w_extra = models.CharField(max_length=26, verbose_name="W/ Extra", default="", blank=True)
   number_of_sides = models.IntegerField(verbose_name="Number of Sides")
   price = models.DecimalField(max_digits=5, decimal_places=2, default='0.00')
 

@@ -2,7 +2,8 @@
 
 
 div.special-section {
-  margin-bottom: 35px }
+  font-size: 18px;
+  margin-bottom: 21px }
 
 div.special-section h2 {
   text-align: center;
@@ -16,15 +17,22 @@ div.special-section.header {
   text-transform: uppercase;
   padding: 28px 0;
   margin-bottom: 0;
-  background: url('../img/checkerboard.png'), rgba(0, 0, 0, .5);
+  background: url('/static/img/checkerboard.png'), rgba(0, 0, 0, .5);
   background-size: 150px }
+div.special-section.header h1.image-fallback {
+  color: transparent;
+  background: url('../img/hot-stuff-carton.png');
+  background-repeat: no-repeat;
+  background-size: 100% }
 div.special-section.header h2 {
   letter-spacing: 3px;
   font-size: 22px }
 
+div.special-section.sides { margin-bottom: 0 }
+
 
 ul.specials,
-ul.sides,
+ol.sides,
 ul.sweets { padding: 0 0 0 21px; margin: 0 }
 
 ul.specials {
@@ -33,26 +41,59 @@ ul.specials {
   ul.specials:before {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     display: block;
     width: 100%;
     text-align: right;
     text-decoration: underline;
     content: 'Price' }
-ul.sides {
-  list-style-type: number }
 
 
 ul.specials li,
-ul.sides li {
-  padding: 7px 0 }
+ol.sides li {
+  padding: 14px 0 14px 14px }
+
+ul.specials li {
+  position: relative }
+
+  ul.specials li .name-side {
+    width: 85%;
+    overflow: wrap }
+  ul.specials li .name-side span.name,
+  ul.specials li .name-side span.veggie {
+    white-space: nowrap;
+  }
+
+  ul.specials li .price {
+    position: absolute;
+    top: 14px; right: 0;
+    font-weight: bold }
+
+
+ol.sides {
+  font-size: 16px;
+  list-style-type: number;
+  columns: 2 }
+  ol.sides li { font-weight: bold }
+  ol.sides.extra { list-style-type: none }
+  ol.sides.extra li { counter-reset: num 11 }
+  ol.sides.extra li:first-child:last-child {
+    margin-left: -56px;
+    column-span: all;
+    text-align: center }
+  ol.sides.extra li:before { content: counter(num) '. ' }
+
+ol.sides li:nth-child(n+6) {
+  margin-right: -56px;
+  margin-left: 56px }
+ol.sides li:nth-child(-n+6) {
+  width: calc(100%+56px) }
 ul.specials li::marker,
-ul.sides li::marker {
+ol.sides li::marker {
   font-weight: bold }
 
-ul.specials li span.price { display: inline-block; float: right }
 
-ul.sides { columns: 2 }
+
 
 div.sweets {
   font-weight: bold;
@@ -60,4 +101,31 @@ div.sweets {
 
 ul.sweets {
   padding: 0;
+  line-height: 2;
   list-style-type: none }
+
+
+/* Print-specific styles */
+@media print {
+  div.special-section.header h1.image-fallback { color: black; font-size: 49px }
+  div.special-section.header {
+    padding-bottom: 0;
+    padding-top: 0 }
+
+  div.special-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .content-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  ul.specials, 
+  ol.sides,
+  ul.sweets {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

@@ -26,7 +26,7 @@ admin.site.index_title = "Welcome to Daily Specials Admin Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('specials/', include('specials.urls')),
+    path('', include('specials.urls')),
 ]
 
 # Serve media files in development

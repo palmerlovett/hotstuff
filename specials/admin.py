@@ -56,6 +56,11 @@ class DailySpecialAdmin(admin.ModelAdmin):
                 'veggie_8',
                 'veggie_9',
                 'veggie_10',
+            ],
+            'classes': ('columns-2', 'even-selects'),
+        }),
+        ('Extra Veggies', {
+            'fields': [
                 'veggie_11',
                 'veggie_12',
             ],

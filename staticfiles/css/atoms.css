@@ -1,11 +1,14 @@
 :root {
   --pad: 28px 42px;
-  --padextra: 35px 63px;
+  --padextra: 35px 56px;
   --padlil: 7px 21px;
   --goldenrod: #d7bd19;
-  --hf-red: #6e1212;
+  --hs-red: #6e1212;
 
-  --content-size: 800px;
+  --content-size: 760px;
+
+  --head-fonts: 'Cartons', 'Georgia';
+  --html-fonts: 'Helvetica', 'Arial';
 }
 
 .pad { padding: var(--pad) }
@@ -19,3 +22,11 @@ a {
   color: inherit }
 
 .tall { text-transform: uppercase }
+
+@media print {
+  .no-pad-print { padding: 0 }
+  .no-pad-x-print {
+    padding-top: 0;
+    padding-bottom: 0 }
+
+}

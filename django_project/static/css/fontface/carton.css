@@ -1,5 +1,5 @@
 @font-face {
   font-family: 'Cartons';
-  src: /* local('Carton'), local('Carton Slab'), local('Carton-Slab'), */
+  src: local('Carton'), local('Carton Slab'), local('Carton-Slab'),
     url('carton-slab.woff2'),
     url('carton-slab.woff') }

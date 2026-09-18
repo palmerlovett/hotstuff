@@ -39,8 +39,9 @@ h2 { text-transform: uppercase }
   margin-bottom: 21px;
   padding: var(--pad) }
 
-
 @media print {
+  body { outline: 0 }
+  .content-card { border: 0px solid black }
   .content-size {
       page-break-inside: avoid;
   break-inside:avoid;

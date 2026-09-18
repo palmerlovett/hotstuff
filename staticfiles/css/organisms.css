@@ -7,6 +7,7 @@ header .logo {}
   header .logo span {
     font-size: 54px;
     text-transform: uppercase;
+    color: var(--hs-red);
     font-family: 'Impact' }
 
 nav.page {
@@ -16,7 +17,7 @@ nav.page {
   justify-content: space-evenly }
 
   nav.page div {
-    font-family: 'Carton';
+    font-family: var(--head-fonts);
     display: flex;
     justify-content: center;
     width: 100% }

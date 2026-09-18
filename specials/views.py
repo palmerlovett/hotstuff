@@ -9,6 +9,7 @@ def create_specials_objects():
   # Create a list of specials with their respective sides
   specials_list = []
   veggies_list = []
+  extra_veggies_list = []
   desserts_list = []
   
   if latest_special:
@@ -26,11 +27,17 @@ def create_specials_objects():
         })
     
     # Process veggies
-    for num in range(1, 13):  # veggies 1-12
+    for num in range(1, 11):  # veggies 1-10
       veggie_field = f"veggie_{num}"
       veggie_obj = getattr(latest_special, veggie_field)
       if veggie_obj:
           veggies_list.append(veggie_obj)
+    # Process veggies
+    for num in range(11, 12):  # veggies 11 & 12
+      extra_veggie_field = f"veggie_{num}"
+      extra_veggie_obj = getattr(latest_special, extra_veggie_field)
+      if extra_veggie_obj:
+          extra_veggies_list.append(extra_veggie_obj)
     
     # Process desserts
     temp_desserts = []
@@ -45,6 +52,7 @@ def create_specials_objects():
       'latest_special': latest_special,
       'specials_list': specials_list,
       'veggies_list': veggies_list,
+      'extra_veggies_list': extra_veggies_list,
       'desserts_list': desserts_list,
     }
 

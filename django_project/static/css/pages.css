@@ -17,8 +17,13 @@ div.special-section.header {
   text-transform: uppercase;
   padding: 28px 0;
   margin-bottom: 0;
-  background: url('../img/checkerboard.png'), rgba(0, 0, 0, .5);
+  background: url('/static/img/checkerboard.png'), rgba(0, 0, 0, .5);
   background-size: 150px }
+div.special-section.header h1.image-fallback {
+  color: transparent;
+  background: url('../img/hot-stuff-carton.png');
+  background-repeat: no-repeat;
+  background-size: 100% }
 div.special-section.header h2 {
   letter-spacing: 3px;
   font-size: 22px }
@@ -27,7 +32,7 @@ div.special-section.sides { margin-bottom: 0 }
 
 
 ul.specials,
-ul.sides,
+ol.sides,
 ul.sweets { padding: 0 0 0 21px; margin: 0 }
 
 ul.specials {
@@ -45,16 +50,16 @@ ul.specials {
 
 
 ul.specials li,
-ul.sides li {
+ol.sides li {
   padding: 14px 0 14px 14px }
 
 ul.specials li {
   position: relative }
 
   ul.specials li .name-side {
-    width: 90%;
+    width: 85%;
     overflow: wrap }
-  ul.specials li .name-side strong.tall,
+  ul.specials li .name-side span.name,
   ul.specials li .name-side span.veggie {
     white-space: nowrap;
   }
@@ -62,21 +67,33 @@ ul.specials li {
   ul.specials li .price {
     position: absolute;
     top: 14px; right: 0;
-  }
+    font-weight: bold }
 
 
-ul.sides li:nth-child(n+6) {
+ol.sides {
+  font-size: 16px;
+  list-style-type: number;
+  columns: 2 }
+  ol.sides li { font-weight: bold }
+  ol.sides.extra { list-style-type: none }
+  ol.sides.extra li { counter-reset: num 11 }
+  ol.sides.extra li:first-child:last-child {
+    margin-left: -56px;
+    column-span: all;
+    text-align: center }
+  ol.sides.extra li:before { content: counter(num) '. ' }
+
+ol.sides li:nth-child(n+6) {
   margin-right: -56px;
   margin-left: 56px }
+ol.sides li:nth-child(-n+6) {
+  width: calc(100%+56px) }
 ul.specials li::marker,
-ul.sides li::marker {
+ol.sides li::marker {
   font-weight: bold }
 
 
-ul.sides { 
-  list-style-type: number;
-  columns: 2 }
-ul.sides li { font-weight: bold }
+
 
 div.sweets {
   font-weight: bold;
@@ -90,12 +107,11 @@ ul.sweets {
 
 /* Print-specific styles */
 @media print {
-  div.special-section h1 { font-size: 49px }
+  div.special-section.header h1.image-fallback { color: black; font-size: 49px }
   div.special-section.header {
     padding-bottom: 0;
     padding-top: 0 }
 
-  
   div.special-section {
     page-break-inside: avoid;
     break-inside: avoid;
@@ -107,7 +123,7 @@ ul.sweets {
   }
   
   ul.specials, 
-  ul.sides,
+  ol.sides,
   ul.sweets {
     page-break-inside: avoid;
     break-inside: avoid;
