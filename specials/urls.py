@@ -6,5 +6,5 @@ app_name = 'specials'
 
 urlpatterns = [
   path('', views.index, name='index'),
-  path('print/', views.print, name='print')
+  path('specials/print/', views.print, name='print')
 ]
