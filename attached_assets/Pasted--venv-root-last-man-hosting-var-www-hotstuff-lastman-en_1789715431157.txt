@@ -1,0 +1,72 @@
+(.venv) root@last-man-hosting:/var/www/hotstuff.lastman.enterprises# python manage.py loaddata data_dump.json 
+Traceback (most recent call last):
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_admin_log
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/www/hotstuff.lastman.enterprises/manage.py", line 22, in <module>
+    main()
+  File "/var/www/hotstuff.lastman.enterprises/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+       ^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/core/serializers/base.py", line 265, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/base.py", line 1036, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/base.py", line 1101, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1990, in execute_sql
+    cursor = super().execute_sql(result_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/hotstuff.lastman.enterprises/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: Problem installing fixture '/var/www/hotstuff.lastman.enterprises/data_dump.json': Could not load admin.LogEntry(pk=1): no such table: django_admin_log
+(.venv) root@last-man-hosting:/var/www/hotstuff.lastman.enterprises# 
